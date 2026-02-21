@@ -7,36 +7,98 @@
   <style>
     :root { --bg:#0b0f19; --card:#11182a; --muted:#a9b4cf; --text:#e8eeff; --line:#22304d; }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-           background: linear-gradient(180deg, #070a12, var(--bg)); color: var(--text); }
+    body {
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: linear-gradient(180deg, #070a12, var(--bg));
+      color: var(--text);
+    }
     a { color: inherit; text-decoration: none; }
+
     .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 60px; }
-    .top { display:flex; flex-wrap:wrap; gap:18px; justify-content:space-between; align-items:flex-start; }
+
+    .top { display:flex; flex-wrap:wrap; gap:24px; justify-content:flex-start; align-items:center; }
+
+    .avatar {
+      width:120px; height:120px;
+      border-radius:50%;
+      border:2px solid var(--line);
+      object-fit:cover;
+      background: rgba(255,255,255,.03);
+      flex: 0 0 auto;
+    }
+
     .title h1 { margin:0; font-size: 34px; letter-spacing: .2px; }
-    .title p { margin:10px 0 0; color: var(--muted); line-height:1.5; max-width: 58ch; }
+    .title p { margin:10px 0 0; color: var(--muted); line-height:1.5; max-width: 60ch; }
+
     .pillrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
-    .pill { border:1px solid var(--line); background: rgba(255,255,255,.03); padding:8px 12px; border-radius:999px; color: var(--muted); font-size: 13px; }
+    .pill {
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:8px 12px;
+      border-radius:999px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
-    .btn { border:1px solid var(--line); background: rgba(255,255,255,.04); padding:10px 14px; border-radius: 12px; font-weight: 600; }
+    .btn {
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:10px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
     .btn.primary { background: rgba(107,148,255,.15); border-color: rgba(107,148,255,.45); }
+
     .section { margin-top: 32px; }
     .section h2 { margin: 0 0 12px; font-size: 18px; letter-spacing: .2px; }
+
     .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
-    .card { grid-column: span 12; border:1px solid var(--line); background: rgba(255,255,255,.03);
-            border-radius: 18px; padding: 16px; }
+    .card {
+      grid-column: span 12;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 16px;
+    }
     @media (min-width: 860px) { .card.half { grid-column: span 6; } }
+
     .card h3 { margin:0 0 6px; font-size: 16px; }
     .card p { margin:0; color: var(--muted); line-height:1.5; }
+
     .meta { margin-top:10px; display:flex; flex-wrap:wrap; gap:10px; color: var(--muted); font-size: 13px; }
-    .shot { margin-top:12px; border:1px solid var(--line); border-radius: 14px; overflow:hidden; background:#0a0f1d; }
+
+    .shot {
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      overflow:hidden;
+      background:#0a0f1d;
+    }
     .shot img { display:block; width:100%; height:auto; }
-    .footer { margin-top: 38px; padding-top: 18px; border-top:1px solid var(--line); color: var(--muted); font-size: 13px; }
+
+    .shot.small { max-width: 600px; margin: 12px auto 0; }
+
+    .footer {
+      margin-top: 38px;
+      padding-top: 18px;
+      border-top:1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     code { background: rgba(255,255,255,.06); padding: 2px 6px; border-radius: 8px; }
   </style>
 </head>
 <body>
   <div class="wrap">
+
+    <!-- HEADER -->
     <div class="top">
+      <!-- Put profile.png in the same repo root -->
+      <img class="avatar" src="profile.png" alt="Yeshwanth Akula profile photo" />
+
       <div class="title">
         <h1>Yeshwanth Akula</h1>
         <p>
@@ -60,6 +122,7 @@
       </div>
     </div>
 
+    <!-- PROJECTS -->
     <div class="section">
       <h2>Featured Projects</h2>
       <div class="grid">
@@ -67,15 +130,20 @@
         <div class="card">
           <h3>TeachAI — RAG-Powered AI Tutor System</h3>
           <p>
-            A production-deployed AI tutoring system using FastAPI + OpenAI embeddings for semantic retrieval and grounded responses.
-            Includes guest authentication, ingestion, vector similarity search, and documented APIs.
+            A production-style Retrieval-Augmented Generation (RAG) system deployed on Render.
+            Implements semantic embedding search, grounded LLM responses, guest authentication,
+            document ingestion, and API-documented endpoints. Designed with modular FastAPI
+            architecture and a vector-based retrieval pipeline.
           </p>
+
           <div class="meta">
             <span>Stack: FastAPI • OpenAI API • SQLite • Next.js • Render</span>
             <span>Repo: <a href="https://github.com/Yesh-is-here2/teachai" target="_blank" rel="noreferrer"><code>teachai</code></a></span>
+            <span>Architecture: Client → FastAPI → Embeddings → Vector Search → LLM → Response</span>
           </div>
-          <!-- Once you upload screenshots, this will render automatically -->
-          <div class="shot">
+
+          <!-- Reduced-size screenshot -->
+          <div class="shot small">
             <img alt="TeachAI UI" src="https://raw.githubusercontent.com/Yesh-is-here2/teachai/main/assets/screenshots/ui.png" />
           </div>
         </div>
@@ -83,7 +151,8 @@
         <div class="card half">
           <h3>AI Research Explorations — OCR & Multimodal Notes</h3>
           <p>
-            Structured exploration of open-source OCR and multimodal systems with technical notes, limitations, and deployment considerations.
+            Structured exploration of open-source OCR and multimodal systems with technical notes, limitations,
+            and deployment considerations.
           </p>
           <div class="meta">
             <span>Repo: <a href="https://github.com/Yesh-is-here2/ai-research-explorations" target="_blank" rel="noreferrer"><code>ai-research-explorations</code></a></span>
@@ -104,6 +173,7 @@
       </div>
     </div>
 
+    <!-- PUBLICATION -->
     <div class="section">
       <h2>Publication</h2>
       <div class="card">
@@ -118,6 +188,7 @@
       </div>
     </div>
 
+    <!-- TEACHING -->
     <div class="section">
       <h2>Teaching & Leadership</h2>
       <div class="grid">
@@ -132,11 +203,14 @@
       </div>
     </div>
 
+    <!-- FOOTER -->
     <div class="footer">
-      Contact: <a href="mailto:Akulayeshwanth3@gmail.com">Akulayeshwanth3@gmail.com</a> •
+      Contact:
+      <a href="mailto:Akulayeshwanth3@gmail.com">Akulayeshwanth3@gmail.com</a> •
       <a href="https://www.linkedin.com/in/yeshwanth-akula-0339a925b/" target="_blank" rel="noreferrer">LinkedIn</a> •
       <a href="https://github.com/Yesh-is-here2" target="_blank" rel="noreferrer">GitHub</a>
     </div>
+
   </div>
 </body>
 </html>
