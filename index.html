@@ -3,28 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yeshwanth Akula — AI Systems Portfolio</title>
+  <title>Yeshwanth Akula — AI / ML Portfolio</title>
 
   <style>
-    :root { --bg:#0b0f19; --card:#11182a; --muted:#a9b4cf; --text:#e8eeff; --line:#22304d; }
+    :root { --bg:#0b0f19; --muted:#a9b4cf; --text:#e8eeff; --line:#22304d; }
     * { box-sizing: border-box; }
-
     body {
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background: linear-gradient(180deg, #070a12, var(--bg));
       color: var(--text);
     }
-
     a { color: inherit; text-decoration: none; }
-
     .wrap { max-width: 1000px; margin: 0 auto; padding: 30px 20px 70px; }
 
     .top { display:flex; flex-wrap:wrap; gap:28px; align-items:center; }
-
     .avatar {
-      width:160px;
-      height:160px;
+      width:160px; height:160px;
       border-radius:50%;
       border:3px solid var(--line);
       object-fit:cover;
@@ -33,7 +28,7 @@
     }
 
     .title h1 { margin:0; font-size: 36px; }
-    .title p { margin:12px 0 0; color: var(--muted); line-height:1.6; max-width: 65ch; }
+    .title p { margin:12px 0 0; color: var(--muted); line-height:1.6; max-width: 70ch; }
 
     .pillrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:15px; }
     .pill {
@@ -52,6 +47,7 @@
       padding:10px 16px;
       border-radius: 12px;
       font-weight: 600;
+      display:inline-block;
     }
     .btn.primary {
       background: rgba(107,148,255,.15);
@@ -62,7 +58,6 @@
     .section h2 { margin: 0 0 16px; font-size: 20px; }
 
     .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-
     .card {
       grid-column: span 12;
       border:1px solid var(--line);
@@ -70,10 +65,7 @@
       border-radius: 18px;
       padding: 20px;
     }
-
-    @media (min-width: 900px) {
-      .card.half { grid-column: span 6; }
-    }
+    @media (min-width: 900px) { .card.half { grid-column: span 6; } }
 
     .card h3 { margin:0 0 8px; font-size: 17px; }
     .card p { margin:0; color: var(--muted); line-height:1.6; }
@@ -94,10 +86,10 @@
       overflow:hidden;
       background:#0a0f1d;
     }
-
     .shot img { display:block; width:100%; height:auto; }
-
     .shot.small { max-width:650px; margin: 16px auto 0; }
+
+    code { background: rgba(255,255,255,.06); padding: 2px 6px; border-radius: 8px; }
 
     .footer {
       margin-top: 50px;
@@ -106,66 +98,65 @@
       color: var(--muted);
       font-size: 14px;
     }
-
-    code { background: rgba(255,255,255,.06); padding: 2px 6px; border-radius: 8px; }
   </style>
 </head>
 <body>
-
 <div class="wrap">
 
   <!-- HEADER -->
   <div class="top">
-
-    <!-- Make sure profile.png exists in portfolio repo root -->
+    <!-- Put profile.png in the portfolio repo root -->
     <img class="avatar" src="profile.png" alt="Yeshwanth Akula profile photo">
 
     <div class="title">
       <h1>Yeshwanth Akula</h1>
       <p>
-        AI Systems Engineer focused on LLM applications, Retrieval-Augmented Generation (RAG),
-        and production-style backend architecture. M.S. Computer Science @ Saint Louis University (2026).
+        AI / ML engineer building deployable systems across machine learning, LLM applications (RAG),
+        and data-driven software engineering. M.S. Computer Science @ Saint Louis University (2026).
+        Currently expanding into analytics and BI workflows (Tableau, Power BI).
       </p>
 
       <div class="pillrow">
-        <div class="pill">LLM Apps</div>
-        <div class="pill">RAG</div>
+        <div class="pill">Machine Learning</div>
+        <div class="pill">LLM / RAG</div>
         <div class="pill">FastAPI</div>
-        <div class="pill">OpenAI Embeddings</div>
-        <div class="pill">Deployment</div>
+        <div class="pill">Data Engineering</div>
+        <div class="pill">Tableau / Power BI</div>
       </div>
 
       <div class="btnrow">
-        <a class="btn primary" href="https://teachai-backend-6x9b.onrender.com/docs" target="_blank">TeachAI Live API</a>
-        <a class="btn" href="https://github.com/Yesh-is-here2" target="_blank">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/yeshwanth-akula-0339a925b/" target="_blank">LinkedIn</a>
+        <a class="btn primary" href="https://yesh-is-here2.github.io/portfolio/" target="_blank" rel="noreferrer">Portfolio</a>
+        <a class="btn" href="https://teachai-backend-6x9b.onrender.com/docs" target="_blank" rel="noreferrer">TeachAI Live API</a>
+        <a class="btn" href="assets/Yeshwanth_Akula_Resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+        <a class="btn" href="https://github.com/Yesh-is-here2" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/yeshwanth-akula-0339a925b/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   </div>
 
-  <!-- PROJECTS -->
+  <!-- FEATURED PROJECTS -->
   <div class="section">
     <h2>Featured Projects</h2>
     <div class="grid">
 
       <!-- TeachAI -->
       <div class="card">
-        <h3>TeachAI — RAG-Powered AI Tutor System</h3>
+        <h3>TeachAI — RAG-Powered AI Tutor System (Deployed)</h3>
         <p>
-          A production-style Retrieval-Augmented Generation (RAG) system deployed on Render.
-          Implements semantic embedding search, grounded LLM responses, guest authentication,
-          document ingestion, and API-documented endpoints using a modular FastAPI architecture.
+          Production-style Retrieval-Augmented Generation (RAG) tutoring system deployed on Render.
+          Implements OpenAI embedding-based semantic retrieval, grounded responses, guest authentication,
+          document ingestion, and OpenAPI-documented endpoints using modular FastAPI architecture.
         </p>
 
         <div class="meta">
           <span>Stack: FastAPI • OpenAI API • SQLite • Next.js • Render</span>
           <span>Architecture: Client → FastAPI → Embeddings → Vector Search → LLM → Response</span>
-          <span>Repo: <a href="https://github.com/Yesh-is-here2/teachai" target="_blank"><code>teachai</code></a></span>
+          <span>Repo: <a href="https://github.com/Yesh-is-here2/teachai" target="_blank" rel="noreferrer"><code>teachai</code></a></span>
+          <span>Live: <a href="https://teachai-backend-6x9b.onrender.com/docs" target="_blank" rel="noreferrer"><code>/docs</code></a></span>
         </div>
 
         <div class="shot small">
-          <img src="https://raw.githubusercontent.com/Yesh-is-here2/teachai/main/assets/screenshots/ui.png"
-               alt="TeachAI UI">
+          <img src="https://raw.githubusercontent.com/Yesh-is-here2/teachai/main/assets/screenshots/ui.png" alt="TeachAI UI screenshot">
         </div>
       </div>
 
@@ -173,14 +164,12 @@
       <div class="card half">
         <h3>AI Mood DJ — Emotion-Based Music Generator</h3>
         <p>
-          AI system that detects user facial emotion and generates music aligned with mood.
-          Integrates emotion recognition models with AI-based music generation pipelines
-          to produce dynamic, personalized audio outputs.
+          Applied AI demo that detects facial emotion and generates mood-aligned music.
+          (Screenshots will be added after re-running the complete pipeline.)
         </p>
-
         <div class="meta">
-          <span>Stack: Emotion Detection • Computer Vision • Generative AI</span>
-          <span>Type: Applied AI Demo Project</span>
+          <span>Focus: Computer Vision • Emotion Recognition • Generative AI</span>
+          <span>Status: Re-run + screenshots pending</span>
         </div>
       </div>
 
@@ -188,12 +177,11 @@
       <div class="card half">
         <h3>AI Research Explorations — OCR & Multimodal Notes</h3>
         <p>
-          Structured exploration of open-source OCR and multimodal systems
-          with implementation notes, limitations, and deployment insights.
+          Structured exploration of open-source OCR and multimodal systems with technical notes, limitations,
+          and deployment considerations.
         </p>
-
         <div class="meta">
-          <span>Repo: <a href="https://github.com/Yesh-is-here2/ai-research-explorations" target="_blank"><code>ai-research-explorations</code></a></span>
+          <span>Repo: <a href="https://github.com/Yesh-is-here2/ai-research-explorations" target="_blank" rel="noreferrer"><code>ai-research-explorations</code></a></span>
         </div>
       </div>
 
@@ -201,12 +189,11 @@
       <div class="card half">
         <h3>Building AI Engineer in 73 Days</h3>
         <p>
-          Phase-based roadmap documenting reproducible progress across ML foundations,
-          LLM systems, and AI software engineering. Includes runnable scripts and logs.
+          Phase-based roadmap documenting reproducible progress across ML foundations, LLM systems,
+          and software engineering for AI. Includes runnable scripts and phase logs.
         </p>
-
         <div class="meta">
-          <span>Repo: <a href="https://github.com/Yesh-is-here2/building-ai-engineer-73-days" target="_blank"><code>building-ai-engineer-73-days</code></a></span>
+          <span>Repo: <a href="https://github.com/Yesh-is-here2/building-ai-engineer-73-days" target="_blank" rel="noreferrer"><code>building-ai-engineer-73-days</code></a></span>
         </div>
       </div>
 
@@ -223,8 +210,34 @@
         Technical review of OCR evolution and EasyOCR pipeline design.
       </p>
       <div class="meta">
-        <span><a href="https://journalcrd.org/wp-content/uploads/15-CRD2174.pdf" target="_blank">View Paper</a></span>
+        <span><a href="https://journalcrd.org/wp-content/uploads/15-CRD2174.pdf" target="_blank" rel="noreferrer">View Paper</a></span>
       </div>
+    </div>
+  </div>
+
+  <!-- CREDENTIALS -->
+  <div class="section">
+    <h2>Academic & Leadership Credentials</h2>
+    <div class="grid">
+
+      <div class="card half">
+        <h3>Teaching Assistant — Data Structures</h3>
+        <p>Recognized for instructional support and academic contribution.</p>
+        <div class="meta">
+          <span><a href="assets/certifications/TA_Certificate.pdf" target="_blank" rel="noreferrer">View Certificate</a></span>
+        </div>
+      </div>
+
+      <div class="card half">
+        <h3>Selected Leadership</h3>
+        <p>UEAC Mentor • PR & Marketing Lead • SVEEP Student Ambassador (curated certificates).</p>
+        <div class="meta">
+          <span><a href="assets/certifications/UEAC_Mentor.pdf" target="_blank" rel="noreferrer">UEAC Mentor</a></span>
+          <span><a href="assets/certifications/PR_Marketing_Lead.pdf" target="_blank" rel="noreferrer">PR & Marketing Lead</a></span>
+          <span><a href="assets/certifications/SVEEP_Ambassador.pdf" target="_blank" rel="noreferrer">SVEEP Ambassador</a></span>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -232,8 +245,8 @@
   <div class="footer">
     Contact:
     <a href="mailto:Akulayeshwanth3@gmail.com">Akulayeshwanth3@gmail.com</a> •
-    <a href="https://github.com/Yesh-is-here2" target="_blank">GitHub</a> •
-    <a href="https://www.linkedin.com/in/yeshwanth-akula-0339a925b/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/Yesh-is-here2" target="_blank" rel="noreferrer">GitHub</a> •
+    <a href="https://www.linkedin.com/in/yeshwanth-akula-0339a925b/" target="_blank" rel="noreferrer">LinkedIn</a>
   </div>
 
 </div>
