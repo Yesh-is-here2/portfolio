@@ -1,201 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Yeshwanth Akula — AI / ML Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Yeshwanth Akula — AI / ML Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root { --bg:#0b0f19; --muted:#a9b4cf; --text:#e8eeff; --line:#22304d; --blue:#4e7cff; }
-* { box-sizing: border-box; }
-html { scroll-behavior:smooth; }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f1a;
+      color: #e6edf3;
+    }
 
-body{
-margin:0;
-font-family: system-ui, -apple-system, Segoe UI, Roboto;
-background: linear-gradient(180deg,#070a12,var(--bg));
-color:var(--text);
-}
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-a{color:inherit;text-decoration:none;}
+    h1, h2, h3 {
+      color: #ffffff;
+    }
 
-.wrap{max-width:1000px;margin:auto;padding:30px 20px 80px;}
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-.avatar{
-width:190px;height:190px;border-radius:50%;
-border:3px solid var(--line);
-object-fit:cover;
-}
+    .profile-pic {
+      width: 180px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
 
-.top{display:flex;gap:28px;flex-wrap:wrap;align-items:center;}
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      margin: 6px;
+      background: #1f6feb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+    }
 
-.title h1{margin:0;font-size:34px;}
-.title p{margin-top:12px;color:var(--muted);max-width:70ch;}
+    .btn:hover {
+      background: #388bfd;
+    }
 
-.btnrow{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
+    .section {
+      margin-top: 60px;
+    }
 
-.btn{
-border:1px solid var(--line);
-background:rgba(255,255,255,.05);
-padding:10px 16px;border-radius:12px;
-font-weight:600;
-}
+    .card {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
 
-.btn.primary{
-background:rgba(78,124,255,.15);
-border-color:var(--blue);
-}
+    .card img {
+      width: 48%;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
 
-.section{margin-top:50px;}
-.section h2{margin-bottom:18px;}
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;}
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
 
-.card{
-grid-column:span 12;
-background:rgba(255,255,255,.03);
-border:1px solid var(--line);
-border-radius:16px;
-padding:20px;
-}
+      .card img {
+        width: 100%;
+      }
+    }
 
-@media(min-width:900px){
-.card.half{grid-column:span 6;}
-}
-
-.card h3{margin:0 0 8px;}
-.card p{color:var(--muted);}
-
-.actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
-
-.linkbtn{
-border:1px solid var(--line);
-padding:8px 12px;border-radius:10px;
-font-size:13px;font-weight:600;
-}
-
-.linkbtn:hover{border-color:var(--blue);}
-
-.shot{
-margin-top:16px;
-border:1px solid var(--line);
-border-radius:14px;
-overflow:hidden;
-max-width:620px;
-margin-left:auto;margin-right:auto;
-}
-.shot img{width:100%;}
-
-.footer{
-margin-top:60px;
-border-top:1px solid var(--line);
-padding-top:20px;
-color:var(--muted);
-font-size:14px;
-}
-</style>
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #8b949e;
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
 
-<div class="top">
-<img src="profile.png" class="avatar" alt="Profile">
+<div class="container">
 
-<div class="title">
-<h1>Yeshwanth Akula</h1>
-<p>
-AI / ML engineer building deployable machine learning systems, RAG-based LLM applications,
-and data-driven software solutions. Expanding into analytics and BI (Tableau, Power BI).
-</p>
+  <!-- HERO -->
+  <div class="hero">
+    <img src="assets/profile.jpg" class="profile-pic">
+    <h1>Yeshwanth Akula</h1>
+    <p>AI / ML Engineer | Applied AI Systems | Data Engineering (Upcoming)</p>
 
-<div class="btnrow">
-<a class="btn primary" href="https://teachai-backend-6x9b.onrender.com/docs" target="_blank">TeachAI Live API</a>
-<a class="btn" href="assets/resume.docx" target="_blank">Resume</a>
-<a class="btn" href="#certificates">Certificates</a>
-<a class="btn" href="https://github.com/Yesh-is-here2" target="_blank">GitHub</a>
-<a class="btn" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-</div>
-</div>
+    <a class="btn" href="assets/resume.pdf" target="_blank">Download Resume</a>
+    <a class="btn" href="https://github.com/Yesh-is-here2" target="_blank">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a>
+  </div>
+
+  <!-- FEATURED PROJECTS -->
+  <div class="section">
+    <h2>Featured Projects</h2>
+
+    <!-- TeachAI -->
+    <div class="card">
+      <h3>TeachAI — RAG-Powered AI Tutor</h3>
+      <p>Production-style AI tutoring system using FastAPI + OpenAI embeddings for semantic retrieval and grounded responses.</p>
+
+      <p><strong>Stack:</strong> FastAPI • OpenAI API • SQLite • Next.js</p>
+
+      <a class="btn" href="https://github.com/Yesh-is-here2/TeachAI" target="_blank">GitHub Repo</a>
+
+      <br><br>
+
+      <img src="https://raw.githubusercontent.com/Yesh-is-here2/TeachAI/main/screenshots/teachai_ui.png">
+    </div>
+
+    <!-- AI Mood DJ -->
+    <div class="card">
+      <h3>AI Mood DJ — Emotion-Based Music Generator</h3>
+      <p>AI system that detects facial emotion via webcam and generates matching music with integrated music player.</p>
+
+      <p><strong>Stack:</strong> Python • Streamlit • OpenCV • Emotion Detection • Music Engine</p>
+
+      <a class="btn" href="https://github.com/Yesh-is-here2/Ai_mood_dj" target="_blank">GitHub Repo</a>
+
+      <br><br>
+
+      <img src="https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_detect.png">
+      <img src="https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_music.png">
+    </div>
+
+    <!-- 73 Days Project -->
+    <div class="card">
+      <h3>Building AI Engineer in 73 Days</h3>
+      <p>Structured roadmap documenting reproducible ML foundations, LLM systems, and AI engineering practices.</p>
+
+      <a class="btn" href="https://github.com/Yesh-is-here2/building-ai-engineer-73-days" target="_blank">GitHub Repo</a>
+    </div>
+
+  </div>
+
+  <!-- PUBLICATION -->
+  <div class="section">
+    <h2>Publication</h2>
+    <div class="card">
+      <h3>Enhancing Text Extraction: EasyOCR Review (2024)</h3>
+      <p>Published in Computer Research and Development. Technical review of OCR evolution and EasyOCR pipeline design.</p>
+    </div>
+  </div>
+
+  <!-- CERTIFICATES -->
+  <div class="section">
+    <h2>Certificates & Achievements</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Teaching Assistant — Certificate of Recognition</h3>
+        <p>Recognition for supporting students and faculty.</p>
+        <a class="btn" href="assets/certificates/ta_certificate.pdf" target="_blank">View Certificate</a>
+      </div>
+
+      <div class="card">
+        <h3>UEAC Mentor — Certificate of Appreciation</h3>
+        <p>Mentorship and university extension contributions.</p>
+        <a class="btn" href="assets/certificates/ueac_certificate.pdf" target="_blank">View Certificate</a>
+      </div>
+
+      <div class="card">
+        <h3>PR, Marketing & Publicity Lead</h3>
+        <p>Leadership role supporting research and innovation events.</p>
+        <a class="btn" href="assets/certificates/pr_marketing.pdf" target="_blank">View Certificate</a>
+      </div>
+
+      <div class="card">
+        <h3>SVEEP Student Ambassador</h3>
+        <p>National voter awareness program participation.</p>
+        <a class="btn" href="assets/certificates/sweep.pdf" target="_blank">View Certificate</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    Contact: akulayeshwanth3@gmail.com
+  </footer>
+
 </div>
 
-<!-- PROJECTS -->
-<div class="section">
-<h2>Featured Projects</h2>
-<div class="grid">
-
-<div class="card">
-<h3>TeachAI — RAG AI Tutor (Deployed)</h3>
-<p>FastAPI + OpenAI embeddings + semantic retrieval + deployment on Render.</p>
-
-<div class="actions">
-<a class="linkbtn" href="https://github.com/Yesh-is-here2/teachai" target="_blank">GitHub Repo</a>
-<a class="linkbtn" href="https://teachai-backend-6x9b.onrender.com/docs" target="_blank">Live API Docs</a>
-</div>
-
-<div class="shot">
-<img src="https://raw.githubusercontent.com/Yesh-is-here2/teachai/main/assets/screenshots/ui.png">
-</div>
-</div>
-
-<div class="card half">
-<h3>AI Mood DJ — Emotion-Based Music Generator</h3>
-<p>Emotion detection pipeline + AI-based music generation. Screenshots will be added after re-run.</p>
-</div>
-
-<div class="card half">
-<h3>AI Research Explorations — OCR & Multimodal</h3>
-<p>Structured technical notes exploring open-source OCR systems and deployment considerations.</p>
-<a class="linkbtn" href="https://github.com/Yesh-is-here2/ai-research-explorations" target="_blank">GitHub Repo</a>
-</div>
-
-</div>
-</div>
-
-<!-- CERTIFICATES -->
-<div class="section" id="certificates">
-<h2>Certificates & Achievements</h2>
-<div class="grid">
-
-<div class="card half">
-<h3>Teaching Assistant — Certificate of Recognition</h3>
-<p>Recognition for supporting students and faculty.</p>
-<div class="actions">
-<a class="linkbtn" href="assets/certifications" target="_blank">View Certificate</a>
-</div>
-</div>
-
-<div class="card half">
-<h3>UEAC Mentor — Certificate of Appreciation</h3>
-<p>Mentorship and university extension contribution.</p>
-<div class="actions">
-<a class="linkbtn" href="assets/certifications" target="_blank">View Certificate</a>
-</div>
-</div>
-
-<div class="card half">
-<h3>Lead — PR, Marketing & Publicity</h3>
-<p>Leadership role in research / innovation event coordination.</p>
-<div class="actions">
-<a class="linkbtn" href="assets/certifications" target="_blank">View Certificate</a>
-</div>
-</div>
-
-<div class="card half">
-<h3>SVEEP Student Ambassador</h3>
-<p>Appreciation certificate for voter awareness participation.</p>
-<div class="actions">
-<a class="linkbtn" href="assets/certifications" target="_blank">View Certificate</a>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="footer">
-Contact: Akulayeshwanth3@gmail.com • GitHub • LinkedIn
-</div>
-
-</div>
 </body>
 </html>
