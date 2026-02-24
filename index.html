@@ -1,201 +1,548 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Yeshwanth Akula — AI / ML Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Yeshwanth Akula — AI/ML, LLM systems, and upcoming Data Engineering projects." />
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f1a;
-      color: #e6edf3;
+    :root{
+      --bg:#070a12;
+      --panel:#0c1222;
+      --panel2:#0b1020;
+      --text:#e8eefc;
+      --muted:#a9b4d1;
+      --muted2:#7d89ab;
+      --line:rgba(255,255,255,.10);
+      --glow:rgba(74,144,226,.35);
+      --primary:#3b82f6;
+      --primary2:#2563eb;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(59,130,246,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 10%, rgba(99,102,241,.18), transparent 55%),
+        radial-gradient(900px 500px at 60% 95%, rgba(34,197,94,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
     }
 
-    h1, h2, h3 {
-      color: #ffffff;
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+
+    .topbar{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,18,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{max-width:1100px;margin:0 auto;padding:12px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      padding:8px 12px;border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+      transition:.15s ease;
+    }
+    .chip:hover{border-color:rgba(59,130,246,.55); box-shadow: 0 0 0 3px rgba(59,130,246,.15); color:var(--text)}
+    .rightLinks{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:10px 14px;border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);text-decoration:none;
+      font-weight:600;font-size:14px;
+      transition:.15s ease;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 10px 30px rgba(0,0,0,.30); border-color: rgba(255,255,255,.18)}
+    .btn.primary{background: linear-gradient(180deg, rgba(59,130,246,.95), rgba(37,99,235,.95)); border-color: rgba(59,130,246,.5)}
+    .btn.primary:hover{box-shadow:0 0 0 3px rgba(59,130,246,.18), var(--shadow)}
+    .btn.ghost{background: rgba(255,255,255,.02)}
+    .btn.small{padding:8px 12px;border-radius:11px;font-size:13px}
+    .btn.disabled{opacity:.45; pointer-events:none}
+
+    .hero{
+      padding:34px 0 22px;
+      display:grid;
+      grid-template-columns: 170px 1fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media (max-width:760px){
+      .hero{grid-template-columns: 1fr; text-align:center}
+      .heroActions{justify-content:center}
     }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 50px;
+    .pfpWrap{display:flex;justify-content:center}
+    .pfp{
+      width:140px;height:140px;border-radius:999px;
+      border:2px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 0 6px rgba(59,130,246,.08), 0 28px 60px rgba(0,0,0,.35);
+      object-fit:cover;
+      background: rgba(255,255,255,.06);
     }
 
-    .profile-pic {
-      width: 180px;
-      border-radius: 50%;
-      margin-bottom: 20px;
+    h1{margin:0;font-size:42px;letter-spacing:-.02em}
+    .subtitle{margin-top:8px;color:var(--muted);font-size:15px}
+    .tagsRow{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+    .tag{
+      font-size:12px;color:#cfe0ff;
+      background: rgba(59,130,246,.10);
+      border:1px solid rgba(59,130,246,.22);
+      padding:6px 10px;border-radius:999px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      margin: 6px;
-      background: #1f6feb;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 14px;
+    .heroActions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+
+    .section{margin-top:26px}
+    .section h2{margin:0 0 12px;font-size:20px;color:#f1f5ff;letter-spacing:-.01em}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 220px at 30% 0%, rgba(59,130,246,.18), transparent 60%);
+      pointer-events:none;
+      opacity:.8;
+    }
+    .card > *{position:relative}
+
+    .two{grid-column: span 6}
+    @media (max-width:900px){.two{grid-column: span 12}}
+
+    .cardTitle{font-size:18px;margin:0 0 8px}
+    .cardDesc{margin:0 0 10px;color:var(--muted);font-size:14px}
+    .stack{color:var(--muted2);font-size:13px;margin:8px 0 0}
+    .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+
+    .media{
+      margin-top:14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      overflow:hidden;
+    }
+    .media img{
+      width:100%;
+      height:auto;
+      display:block;
     }
 
-    .btn:hover {
-      background: #388bfd;
+    /* smaller / controlled project screenshots */
+    .media.small img{max-height:320px; object-fit:cover}
+    .media.teachai img{max-height:260px; object-fit:cover} /* reduce size per your request */
+    @media (max-width:760px){
+      .media.small img{max-height:260px}
+      .media.teachai img{max-height:220px}
     }
 
-    .section {
-      margin-top: 60px;
+    .gallery{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+    }
+    @media (max-width:760px){.gallery{grid-template-columns: 1fr}}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
     }
 
-    .card {
-      background: #161b22;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
+    .footer{
+      margin-top:30px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+      color:var(--muted2);
+      font-size:13px;
+      display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;
     }
 
-    .card img {
-      width: 48%;
-      border-radius: 8px;
-      margin-top: 15px;
+    .note{
+      font-size:12px;color:var(--muted2);margin-top:10px
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .warn{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(245,158,11,.35);
+      background: rgba(245,158,11,.10);
+      color:#ffe7b5;
+      font-size:13px;
     }
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card img {
-        width: 100%;
-      }
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 14px;
-      color: #8b949e;
-    }
+    .warn.show{display:block}
   </style>
 </head>
 
 <body>
+  <!-- CONFIG: edit these URLs (ONLY if you want to) -->
+  <script>
+    // Keep everything in ONE HTML. Just update these if paths change.
+    const CONFIG = {
+      // portfolio repo assets (your zip structure)
+      profileImage: "profile.png",
 
-<div class="container">
+      // Resume: you said you'll upload/update later. Best is resume.pdf at root.
+      // If you keep docx for now, it will still work via resume.docx.
+      resumePdf: "resume.pdf",
+      resumeDocx: "resume.docx",
 
-  <!-- HERO -->
-  <div class="hero">
-    <img src="assets/profile.jpg" class="profile-pic">
-    <h1>Yeshwanth Akula</h1>
-    <p>AI / ML Engineer | Applied AI Systems | Data Engineering (Upcoming)</p>
+      // Certificates (from your current folder: assets/certifications/)
+      certs: {
+        ta: "assets/certifications/TA_Certificate.PDF",
+        ueac: "assets/certifications/UEAC_Mentor_Certificate.png",
+        mpr: "assets/certifications/MPR.png",
+        sweep: "assets/certifications/SVEEP.png"
+      },
 
-    <a class="btn" href="assets/resume.pdf" target="_blank">Download Resume</a>
-    <a class="btn" href="https://github.com/Yesh-is-here2" target="_blank">GitHub</a>
-    <a class="btn" href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a>
+      // Project repos (links)
+      teachAiRepo: "https://github.com/Yesh-is-here2/TeachAi",
+      teachAiApi: "https://teachai-backend-6x9b.onrender.com/docs",
+      portfolioRepo: "https://github.com/Yesh-is-here2/portfolio",
+      aiMoodDjRepo: "https://github.com/Yesh-is-here2/Ai_mood_dj",
+
+      // AI Mood DJ screenshots are in Ai_mood_dj repo -> screenshots/
+      // Raw URLs work on GitHub Pages reliably.
+      moodDetectImg: "https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_detect.png",
+      moodMusicImg: "https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_music.png",
+
+      // TeachAI screenshot:
+      // If you have a screenshot inside the TeachAI repo, paste RAW URL here.
+      // If you don't, leave as "" and it will hide the image block.
+      teachAiImg: "" // example: "https://raw.githubusercontent.com/Yesh-is-here2/TeachAi/main/screenshots/teachai_ui.png"
+    };
+
+    // helper to check if a file exists (avoid dead buttons)
+    async function headOk(url){
+      try{
+        const r = await fetch(url, { method: "HEAD", cache: "no-store" });
+        return r.ok;
+      }catch(e){
+        return false;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      // profile
+      const pfp = document.getElementById("pfp");
+      pfp.src = CONFIG.profileImage;
+
+      // resume buttons
+      const resumePdfBtn = document.getElementById("resumePdfBtn");
+      const resumeDocxBtn = document.getElementById("resumeDocxBtn");
+      resumePdfBtn.href = CONFIG.resumePdf;
+      resumeDocxBtn.href = CONFIG.resumeDocx;
+
+      // cert buttons
+      const certTA = document.getElementById("certTA");
+      const certUEAC = document.getElementById("certUEAC");
+      const certMPR = document.getElementById("certMPR");
+      const certSVEEP = document.getElementById("certSVEEP");
+      certTA.href = CONFIG.certs.ta;
+      certUEAC.href = CONFIG.certs.ueac;
+      certMPR.href = CONFIG.certs.mpr;
+      certSVEEP.href = CONFIG.certs.sweep;
+
+      // repo links
+      document.getElementById("teachAiRepo").href = CONFIG.teachAiRepo;
+      document.getElementById("teachAiApi").href = CONFIG.teachAiApi;
+      document.getElementById("portfolioRepo").href = CONFIG.portfolioRepo;
+      document.getElementById("aiMoodDjRepo").href = CONFIG.aiMoodDjRepo;
+
+      // mood images
+      const mood1 = document.getElementById("mood1");
+      const mood2 = document.getElementById("mood2");
+      mood1.src = CONFIG.moodDetectImg;
+      mood2.src = CONFIG.moodMusicImg;
+
+      // TeachAI image optional
+      const teachAiMedia = document.getElementById("teachAiMedia");
+      const teachAiImg = document.getElementById("teachAiImg");
+      if (CONFIG.teachAiImg && CONFIG.teachAiImg.trim().length > 0){
+        teachAiImg.src = CONFIG.teachAiImg;
+        teachAiMedia.style.display = "block";
+      } else {
+        teachAiMedia.style.display = "none";
+      }
+
+      // Disable buttons if missing (prevents 404 clicks)
+      const warnBox = document.getElementById("warnBox");
+      const checks = [
+        { el: resumePdfBtn, url: CONFIG.resumePdf, label: "resume.pdf" },
+        { el: resumeDocxBtn, url: CONFIG.resumeDocx, label: "resume.docx" },
+        { el: certTA, url: CONFIG.certs.ta, label: "TA_Certificate.PDF" },
+        { el: certUEAC, url: CONFIG.certs.ueac, label: "UEAC_Mentor_Certificate.png" },
+        { el: certMPR, url: CONFIG.certs.mpr, label: "MPR.png" },
+        { el: certSVEEP, url: CONFIG.certs.sweep, label: "SVEEP.png" }
+      ];
+
+      const missing = [];
+      for (const c of checks){
+        const ok = await headOk(c.url);
+        if (!ok){
+          c.el.classList.add("disabled");
+          c.el.setAttribute("aria-disabled","true");
+          c.el.title = `Missing: ${c.label} (upload it + push to GitHub)`;
+          missing.push(c.label);
+        }
+      }
+
+      if (missing.length){
+        warnBox.classList.add("show");
+        warnBox.innerHTML =
+          `<b>Some files are not found on GitHub Pages yet.</b><br>
+           Missing: ${missing.join(", ")}<br>
+           Fix: upload the file(s) to the same path, <b>commit + push</b>, then hard refresh (Ctrl+Shift+R).`;
+      }
+    });
+  </script>
+
+  <div class="topbar">
+    <div class="inner">
+      <div class="chips">
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#publication">Publication</a>
+        <a class="chip" href="#certificates">Certificates</a>
+        <a class="chip" href="#contact">Contact</a>
+      </div>
+      <div class="rightLinks">
+        <a class="btn small ghost" id="portfolioRepo" href="#" target="_blank" rel="noreferrer">Portfolio Repo</a>
+      </div>
+    </div>
   </div>
 
-  <!-- FEATURED PROJECTS -->
-  <div class="section">
-    <h2>Featured Projects</h2>
+  <div class="wrap">
+    <section class="hero" id="top">
+      <div class="pfpWrap">
+        <img id="pfp" class="pfp" alt="Profile Picture" />
+      </div>
 
-    <!-- TeachAI -->
-    <div class="card">
-      <h3>TeachAI — RAG-Powered AI Tutor</h3>
-      <p>Production-style AI tutoring system using FastAPI + OpenAI embeddings for semantic retrieval and grounded responses.</p>
+      <div>
+        <h1>Yeshwanth Akula</h1>
+        <div class="subtitle">
+          AI / ML • LLM Systems • Software Engineering • <span style="color:#cfe0ff">Data Engineering (upcoming)</span>
+        </div>
 
-      <p><strong>Stack:</strong> FastAPI • OpenAI API • SQLite • Next.js</p>
+        <div class="tagsRow">
+          <span class="tag">FastAPI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">OpenAI Embeddings</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Tableau / Power BI (next)</span>
+        </div>
 
-      <a class="btn" href="https://github.com/Yesh-is-here2/TeachAI" target="_blank">GitHub Repo</a>
+        <div class="heroActions">
+          <a class="btn primary" id="resumePdfBtn" href="#" target="_blank" rel="noreferrer">Download Resume (PDF)</a>
+          <a class="btn" id="resumeDocxBtn" href="#" target="_blank" rel="noreferrer">Resume (DOCX)</a>
+          <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/Yesh-is-here2" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
 
-      <br><br>
+        <div id="warnBox" class="warn"></div>
+        <div class="note">
+          Tip: For GitHub Pages, file paths are <b>case-sensitive</b>. If you rename a file, update the exact name here.
+        </div>
+      </div>
+    </section>
 
-      <img src="https://raw.githubusercontent.com/Yesh-is-here2/TeachAI/main/screenshots/teachai_ui.png">
-    </div>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <h2>Featured Projects</h2>
 
-    <!-- AI Mood DJ -->
-    <div class="card">
-      <h3>AI Mood DJ — Emotion-Based Music Generator</h3>
-      <p>AI system that detects facial emotion via webcam and generates matching music with integrated music player.</p>
+      <div class="grid">
+        <!-- TeachAI -->
+        <article class="card two">
+          <h3 class="cardTitle">TeachAI — RAG-Powered AI Tutor System</h3>
+          <p class="cardDesc">
+            Production-style tutoring system using <b>FastAPI</b> + <b>OpenAI embeddings</b> for semantic retrieval and grounded answers,
+            with guest auth, ingestion, vector similarity search, and documented APIs.
+          </p>
+          <div class="stack"><b>Stack:</b> FastAPI • OpenAI API • SQLite • Next.js • Render</div>
 
-      <p><strong>Stack:</strong> Python • Streamlit • OpenCV • Emotion Detection • Music Engine</p>
+          <div class="actions">
+            <a class="btn primary" id="teachAiApi" href="#" target="_blank" rel="noreferrer">Live API Docs</a>
+            <a class="btn" id="teachAiRepo" href="#" target="_blank" rel="noreferrer">GitHub Repo</a>
+          </div>
 
-      <a class="btn" href="https://github.com/Yesh-is-here2/Ai_mood_dj" target="_blank">GitHub Repo</a>
+          <!-- Optional screenshot (will hide automatically unless you set CONFIG.teachAiImg) -->
+          <div class="media teachai" id="teachAiMedia" style="display:none">
+            <img id="teachAiImg" alt="TeachAI Screenshot" loading="lazy" />
+          </div>
 
-      <br><br>
+          <div class="note">
+            If you want a TeachAI screenshot here: upload it inside TeachAI repo (e.g., <code>screenshots/</code>) and paste the RAW link into
+            <code>CONFIG.teachAiImg</code>.
+          </div>
+        </article>
 
-      <img src="https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_detect.png">
-      <img src="https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_music.png">
-    </div>
+        <!-- AI Mood DJ -->
+        <article class="card two">
+          <h3 class="cardTitle">AI Mood DJ — Emotion-Based Music Generator</h3>
+          <p class="cardDesc">
+            Detects facial emotion from a webcam snapshot and generates matching music with an integrated player.
+            Demonstrates end-to-end flow: capture → inference → generation → playback.
+          </p>
+          <div class="stack"><b>Stack:</b> Python • Streamlit • OpenCV • Emotion Detection • Music Generation</div>
 
-    <!-- 73 Days Project -->
-    <div class="card">
-      <h3>Building AI Engineer in 73 Days</h3>
-      <p>Structured roadmap documenting reproducible ML foundations, LLM systems, and AI engineering practices.</p>
+          <div class="actions">
+            <a class="btn" id="aiMoodDjRepo" href="#" target="_blank" rel="noreferrer">GitHub Repo</a>
+          </div>
 
-      <a class="btn" href="https://github.com/Yesh-is-here2/building-ai-engineer-73-days" target="_blank">GitHub Repo</a>
-    </div>
+          <div class="gallery">
+            <div class="media small">
+              <img id="mood1" alt="AI Mood DJ — Detection" loading="lazy" />
+            </div>
+            <div class="media small">
+              <img id="mood2" alt="AI Mood DJ — Music Player" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
+        <!-- Building AI Engineer -->
+        <article class="card">
+          <h3 class="cardTitle">Building AI Engineer in 73 Days</h3>
+          <p class="cardDesc">
+            Phase-based roadmap documenting reproducible progress across ML foundations, LLM systems, and production practices.
+            Includes runnable scripts, logs, and phase outputs (e.g., stub runs for offline flows).
+          </p>
+          <div class="actions">
+            <a class="btn" href="https://github.com/Yesh-is-here2/building-ai-engineer-73-days" target="_blank" rel="noreferrer">GitHub Repo</a>
+            <span class="pill">Reproducibility • Artifacts • Logs</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PUBLICATION -->
+    <section class="section" id="publication">
+      <h2>Publication</h2>
+
+      <article class="card">
+        <h3 class="cardTitle">Enhancing Text Extraction: The Evolution and Future Potential of EasyOCR (2024)</h3>
+        <p class="cardDesc">
+          Published in <i>Computer Research and Development</i> (Vol 24, Issue 6, 2024). Review of OCR evolution and EasyOCR pipeline,
+          with discussion of practical constraints and future directions.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://journalcrd.org/wp-content/uploads/15-CRD2174.pdf" target="_blank" rel="noreferrer">View Paper (PDF)</a>
+          <span class="pill">OCR • Multimodal • Systems</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="section" id="certificates">
+      <h2>Certificates & Achievements</h2>
+
+      <div class="grid">
+        <article class="card two">
+          <h3 class="cardTitle">Teaching Assistant — Certificate of Recognition</h3>
+          <p class="cardDesc">Recognition for supporting students and faculty through instructional contributions.</p>
+          <div class="actions">
+            <a class="btn primary" id="certTA" href="#" target="_blank" rel="noreferrer">View Certificate</a>
+          </div>
+        </article>
+
+        <article class="card two">
+          <h3 class="cardTitle">UEAC Mentor — Certificate of Appreciation</h3>
+          <p class="cardDesc">Mentorship and contribution to university extension activities and student support.</p>
+          <div class="actions">
+            <a class="btn primary" id="certUEAC" href="#" target="_blank" rel="noreferrer">View Certificate</a>
+          </div>
+        </article>
+
+        <article class="card two">
+          <h3 class="cardTitle">Lead — PR, Marketing & Publicity</h3>
+          <p class="cardDesc">Leadership role supporting research / innovation event coordination and communications.</p>
+          <div class="actions">
+            <a class="btn primary" id="certMPR" href="#" target="_blank" rel="noreferrer">View Certificate</a>
+          </div>
+        </article>
+
+        <article class="card two">
+          <h3 class="cardTitle">SVEEP Student Ambassador</h3>
+          <p class="cardDesc">Appreciation certificate for participation in national voter awareness activities.</p>
+          <div class="actions">
+            <a class="btn primary" id="certSVEEP" href="#" target="_blank" rel="noreferrer">View Certificate</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="cardTitle">Note</h3>
+          <p class="cardDesc">
+            GitHub Pages cannot “browse” a folder like a directory listing.
+            So we show <b>direct working links</b> for each certificate (best practice).
+          </p>
+          <div class="note">
+            If any button shows disabled, it means the file is not found at that exact path yet.
+            Upload it, commit + push, then hard refresh.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+
+      <article class="card">
+        <p class="cardDesc" style="margin:0">
+          Email: <b>yeshwanth.akula@slu.edu</b> &nbsp;•&nbsp;
+          GitHub: <a href="https://github.com/Yesh-is-here2" target="_blank" rel="noreferrer"><b>Yesh-is-here2</b></a>
+        </p>
+      </article>
+
+      <div class="footer">
+        <div>© <span id="year"></span> Yeshwanth Akula</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="chip" href="#top">Back to top</a>
+        </div>
+      </div>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+    </section>
   </div>
-
-  <!-- PUBLICATION -->
-  <div class="section">
-    <h2>Publication</h2>
-    <div class="card">
-      <h3>Enhancing Text Extraction: EasyOCR Review (2024)</h3>
-      <p>Published in Computer Research and Development. Technical review of OCR evolution and EasyOCR pipeline design.</p>
-    </div>
-  </div>
-
-  <!-- CERTIFICATES -->
-  <div class="section">
-    <h2>Certificates & Achievements</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>Teaching Assistant — Certificate of Recognition</h3>
-        <p>Recognition for supporting students and faculty.</p>
-        <a class="btn" href="assets/certificates/ta_certificate.pdf" target="_blank">View Certificate</a>
-      </div>
-
-      <div class="card">
-        <h3>UEAC Mentor — Certificate of Appreciation</h3>
-        <p>Mentorship and university extension contributions.</p>
-        <a class="btn" href="assets/certificates/ueac_certificate.pdf" target="_blank">View Certificate</a>
-      </div>
-
-      <div class="card">
-        <h3>PR, Marketing & Publicity Lead</h3>
-        <p>Leadership role supporting research and innovation events.</p>
-        <a class="btn" href="assets/certificates/pr_marketing.pdf" target="_blank">View Certificate</a>
-      </div>
-
-      <div class="card">
-        <h3>SVEEP Student Ambassador</h3>
-        <p>National voter awareness program participation.</p>
-        <a class="btn" href="assets/certificates/sweep.pdf" target="_blank">View Certificate</a>
-      </div>
-
-    </div>
-  </div>
-
-  <footer>
-    Contact: akulayeshwanth3@gmail.com
-  </footer>
-
-</div>
-
 </body>
 </html>
