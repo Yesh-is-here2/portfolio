@@ -221,10 +221,8 @@
       // portfolio repo assets (your zip structure)
       profileImage: "profile.png",
 
-      // Resume: you said you'll upload/update later. Best is resume.pdf at root.
-      // If you keep docx for now, it will still work via resume.docx.
+      // Resume: keep only PDF button
       resumePdf: "resume.pdf",
-      resumeDocx: "resume.docx",
 
       // Certificates (from your current folder: assets/certifications/)
       certs: {
@@ -241,14 +239,14 @@
       aiMoodDjRepo: "https://github.com/Yesh-is-here2/Ai_mood_dj",
 
       // AI Mood DJ screenshots are in Ai_mood_dj repo -> screenshots/
-      // Raw URLs work on GitHub Pages reliably.
       moodDetectImg: "https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_detect.png",
       moodMusicImg: "https://raw.githubusercontent.com/Yesh-is-here2/Ai_mood_dj/main/screenshots/mood_music.png",
 
-      // TeachAI screenshot:
-      // If you have a screenshot inside the TeachAI repo, paste RAW URL here.
-      // If you don't, leave as "" and it will hide the image block.
-      teachAiImg: "" // example: "https://raw.githubusercontent.com/Yesh-is-here2/TeachAi/main/screenshots/teachai_ui.png"
+      // TeachAI screenshot (your path: TeachAi/assets/screenshots/ui.png)
+      teachAiImg: "https://raw.githubusercontent.com/Yesh-is-here2/TeachAi/main/assets/screenshots/ui.png",
+
+      // Suggestions email
+      suggestEmail: "yeshwanthakula.r@gmail.com"
     };
 
     // helper to check if a file exists (avoid dead buttons)
@@ -266,11 +264,17 @@
       const pfp = document.getElementById("pfp");
       pfp.src = CONFIG.profileImage;
 
-      // resume buttons
+      // resume button
       const resumePdfBtn = document.getElementById("resumePdfBtn");
-      const resumeDocxBtn = document.getElementById("resumeDocxBtn");
       resumePdfBtn.href = CONFIG.resumePdf;
-      resumeDocxBtn.href = CONFIG.resumeDocx;
+
+      // suggestion button (mailto)
+      const suggestBtn = document.getElementById("suggestBtn");
+      const subject = encodeURIComponent("Portfolio Suggestion for Yeshwanth Akula");
+      const body = encodeURIComponent(
+        "Hi Yeshwanth,\n\nI visited your portfolio. Here are my suggestions:\n\n1) \n2) \n\n(Optional) My name:\nLinkedIn:\n\nThanks!"
+      );
+      suggestBtn.href = `mailto:${CONFIG.suggestEmail}?subject=${subject}&body=${body}`;
 
       // cert buttons
       const certTA = document.getElementById("certTA");
@@ -294,7 +298,7 @@
       mood1.src = CONFIG.moodDetectImg;
       mood2.src = CONFIG.moodMusicImg;
 
-      // TeachAI image optional
+      // TeachAI image
       const teachAiMedia = document.getElementById("teachAiMedia");
       const teachAiImg = document.getElementById("teachAiImg");
       if (CONFIG.teachAiImg && CONFIG.teachAiImg.trim().length > 0){
@@ -308,7 +312,6 @@
       const warnBox = document.getElementById("warnBox");
       const checks = [
         { el: resumePdfBtn, url: CONFIG.resumePdf, label: "resume.pdf" },
-        { el: resumeDocxBtn, url: CONFIG.resumeDocx, label: "resume.docx" },
         { el: certTA, url: CONFIG.certs.ta, label: "TA_Certificate.PDF" },
         { el: certUEAC, url: CONFIG.certs.ueac, label: "UEAC_Mentor_Certificate.png" },
         { el: certMPR, url: CONFIG.certs.mpr, label: "MPR.png" },
@@ -372,8 +375,8 @@
         </div>
 
         <div class="heroActions">
-          <a class="btn primary" id="resumePdfBtn" href="#" target="_blank" rel="noreferrer">Download Resume (PDF)</a>
-          <a class="btn" id="resumeDocxBtn" href="#" target="_blank" rel="noreferrer">Resume (DOCX)</a>
+          <a class="btn primary" id="resumePdfBtn" href="#" target="_blank" rel="noreferrer">Download Resume</a>
+          <a class="btn" id="suggestBtn" href="#" target="_blank" rel="noreferrer">Suggest Improvements</a>
           <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
           <a class="btn" href="https://github.com/Yesh-is-here2" target="_blank" rel="noreferrer">GitHub</a>
         </div>
@@ -404,14 +407,8 @@
             <a class="btn" id="teachAiRepo" href="#" target="_blank" rel="noreferrer">GitHub Repo</a>
           </div>
 
-          <!-- Optional screenshot (will hide automatically unless you set CONFIG.teachAiImg) -->
           <div class="media teachai" id="teachAiMedia" style="display:none">
             <img id="teachAiImg" alt="TeachAI Screenshot" loading="lazy" />
-          </div>
-
-          <div class="note">
-            If you want a TeachAI screenshot here: upload it inside TeachAI repo (e.g., <code>screenshots/</code>) and paste the RAW link into
-            <code>CONFIG.teachAiImg</code>.
           </div>
         </article>
 
