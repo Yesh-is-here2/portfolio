@@ -59,8 +59,7 @@ nav{position:sticky;top:0;z-index:100;padding:0 32px;height:60px;display:flex;al
 .hero-photo-ring::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--bg);z-index:1;}
 .hero-photo{position:absolute;inset:6px;border-radius:50%;object-fit:cover;z-index:2;width:calc(100% - 12px);height:calc(100% - 12px);}
 @media(max-width:800px){.hero-photo-wrap{display:none}}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:60px;}
-@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:60px;}
 .stat-card{padding:20px;border-radius:var(--radius);border:1px solid var(--border);background:rgba(255,255,255,0.02);text-align:center;transition:all 0.2s;}
 .stat-card:hover{border-color:var(--border2);background:rgba(255,255,255,0.04);transform:translateY(-2px)}
 .stat-num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,var(--accent2),var(--text));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -78,6 +77,15 @@ nav{position:sticky;top:0;z-index:100;padding:0 32px;height:60px;display:flex;al
 .skill-tags{display:flex;flex-wrap:wrap;gap:7px}
 .skill-tag{padding:5px 10px;border-radius:6px;font-size:12px;font-weight:500;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--muted);transition:all 0.15s;}
 .skill-tag:hover{color:var(--text);border-color:var(--border2)}
+.exp-card{padding:28px;border-radius:var(--radius);border:1px solid var(--border);background:linear-gradient(145deg,rgba(13,21,37,0.9),rgba(8,13,24,0.9));transition:all 0.2s;margin-bottom:16px;}
+.exp-card:hover{border-color:rgba(59,110,246,0.2)}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:4px;}
+.exp-role{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;letter-spacing:-0.01em;color:var(--text);}
+.exp-dates{font-size:12px;color:var(--muted2);font-family:'JetBrains Mono',monospace;letter-spacing:0.02em;white-space:nowrap;}
+.exp-company{font-size:14px;color:var(--accent2);font-weight:500;margin-bottom:14px;}
+.exp-bullets{display:flex;flex-direction:column;gap:8px;}
+.exp-bullet{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted);line-height:1.6;}
+.exp-bullet::before{content:"→";color:var(--accent);font-weight:600;flex-shrink:0;margin-top:1px;}
 .projects-grid{display:grid;gap:20px;}
 .project-featured{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 @media(max-width:800px){.project-featured{grid-template-columns:1fr}}
@@ -162,6 +170,7 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
 <nav>
   <a class="nav-logo" href="#top">YA</a>
   <div class="nav-links">
+    <a class="nav-link" href="#experience">Experience</a>
     <a class="nav-link" href="#projects">Projects</a>
     <a class="nav-link" href="#publication">Research</a>
     <a class="nav-link" href="#education">Education</a>
@@ -173,10 +182,8 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
 
   <section class="hero" id="top">
     <div>
-      <!-- CHANGED: removed OPT reference -->
       <div class="hero-badge">Available for full-time · US Work Authorized</div>
       <h1 class="hero-name">Yeshwanth<br><span>Akula</span></h1>
-      <!-- CHANGED: removed GPA from description -->
       <p class="hero-desc">
         AI/ML Engineer building <strong>production LLM systems</strong>, RAG pipelines, and agentic workflows.
         From architecture to deployment — I ship AI that works in the real world.
@@ -195,7 +202,6 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
     </div>
   </section>
 
-  <!-- CHANGED: GPA → Production Systems, 3yr OPT → May '27 Start -->
   <div class="stats fade-up">
     <div class="stat-card">
       <div class="stat-num">73</div>
@@ -209,16 +215,11 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
       <div class="stat-num">1</div>
       <div class="stat-label">Peer-Reviewed Paper</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">May '27</div>
-      <div class="stat-label">Available To Start</div>
-    </div>
   </div>
 
-  <!-- CHANGED: removed H-1B and OPT references -->
   <div class="avail-banner fade-up">
     <div class="avail-dot"></div>
-    Actively seeking full-time AI/ML Engineer roles · Available May 27, 2026 · Open to relocation
+    Actively seeking full-time AI/ML Engineer roles · Open to relocation
   </div>
 
   <section class="section fade-up" id="skills">
@@ -263,6 +264,53 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
         <div class="skill-tags">
           <span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Java</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Spark</span><span class="skill-tag">Kafka</span><span class="skill-tag">Ray</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-up" id="experience">
+    <div class="section-header">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="section-line"></div>
+      <span class="section-tag">Career</span>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <span class="exp-role">AI Engineer</span>
+        <span class="exp-dates">Jul 2026 – Present</span>
+      </div>
+      <div class="exp-company">Benda Infotech · Remote (USA)</div>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Collaborate with senior software engineers to build enterprise-grade RAG pipelines and autonomous agentic workflows using LangChain, LangGraph, and LlamaIndex to query multi-format corporate knowledge bases</div>
+        <div class="exp-bullet">Develop and test high-throughput RESTful API endpoints using FastAPI and Pydantic validation, connecting custom LLM chains to internal tools while maintaining strict schema compliance</div>
+        <div class="exp-bullet">Implement vector database indexing strategies (FAISS, Pinecone) with hybrid keyword-semantic retrieval, improving document chunk relevance and reducing hallucination rates across customer queries</div>
+        <div class="exp-bullet">Optimize LLM API token consumption through prompt compression, response caching, and dynamic token budgeting, lowering operational inference costs without degrading output quality</div>
+        <div class="exp-bullet">Support end-to-end MLOps by packaging services into Docker containers, configuring GitHub Actions CI/CD, and logging experiment parameters using MLflow</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <span class="exp-role">AI Engineer Intern</span>
+        <span class="exp-dates">May 2025 – Aug 2025</span>
+      </div>
+      <div class="exp-company">Benda Infotech · Remote (USA)</div>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Engineered and deployed enterprise RAG workflows using LangChain, LlamaIndex, and vector databases (FAISS/Pinecone), improving document retrieval accuracy and lowering query response times</div>
+        <div class="exp-bullet">Optimized LLM API pipelines using prompt engineering, dynamic token budgeting, and hybrid retrieval methods, reducing API consumption costs while maintaining baseline accuracy metrics</div>
+        <div class="exp-bullet">Developed RESTful microservices with FastAPI and Python to integrate custom LLM endpoints, automated data parsing pipelines, and agentic tools into enterprise client applications</div>
+        <div class="exp-bullet">Collaborated with cross-functional engineering and data teams on automated MLOps practices, including Docker containerization and MLflow experiment tracking</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <span class="exp-role">Teaching Assistant — Data Structures</span>
+        <span class="exp-dates">Jul 2023 – May 2024</span>
+      </div>
+      <div class="exp-company">Vignan's Foundation for Science, Technology & Research · Andhra Pradesh, India</div>
+      <div class="exp-bullets">
+        <div class="exp-bullet">Mentored 100+ undergraduate students in core CS concepts including arrays, linked lists, trees, graphs, dynamic programming, and Python memory management</div>
+        <div class="exp-bullet">Facilitated weekly hands-on lab sessions and conducted code reviews, guiding students through debugging, algorithmic problem-solving, and clean coding practices</div>
+        <div class="exp-bullet">Designed supplementary practice problems and held 1-on-1 tutoring sessions, helping underperforming students improve coursework comprehension and assessment scores</div>
       </div>
     </div>
   </section>
@@ -327,7 +375,27 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
 
       <div class="project-card full">
         <div class="project-inner">
-          <div class="project-number">03 / 73-Day Portfolio</div>
+          <div class="project-number">03 / AI Job Board Automation Agent</div>
+          <div class="project-type-badge badge-llm">Agentic AI · Distributed Systems</div>
+          <h3 class="project-title">AI Job Board Automation Agent</h3>
+          <p class="project-desc">A distributed pub-sub pipeline that scrapes job listings, filters and ranks them against my profile using LLM scoring — built to run at a realistic cadence without the cost blowing up.</p>
+          <div class="project-highlights">
+            <div class="highlight">Kafka pub-sub pipeline decoupling scraping, filtering, and LLM scoring stages so each can scale independently</div>
+            <div class="highlight">MLflow experiment tracking across scoring approach iterations</div>
+            <div class="highlight">Added a keyword pre-filter ahead of the expensive LLM call — cut per-run cost by 98% (from $4 to 5 cents) by eliminating irrelevant listings before they ever reach the model</div>
+          </div>
+          <div class="tech-row">
+            <span class="tech">Python</span><span class="tech">Kafka</span><span class="tech">MLflow</span><span class="tech">Claude API</span>
+          </div>
+          <div class="project-links">
+            <a class="link-btn link-secondary" href="https://github.com/Yesh-is-here2" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card full">
+        <div class="project-inner">
+          <div class="project-number">04 / 73-Day Portfolio</div>
           <div class="project-type-badge badge-portfolio">AI Engineering · MLOps · Full Stack</div>
           <h3 class="project-title">Building an AI Engineer in 73 Days</h3>
           <p class="project-desc">73 consecutive AI engineering deliverables — one shipped every day for 73 days. Not tutorials. Real working code with output artifacts proving execution across the complete AI engineering stack.</p>
@@ -398,7 +466,6 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
       <div class="section-line"></div>
       <span class="section-tag">Academic</span>
     </div>
-    <!-- CHANGED: removed gpa-badge entirely, education card is now single column -->
     <div class="edu-card">
       <div>
         <h3 class="edu-degree">Master of Science — Computer Science</h3>
@@ -448,8 +515,7 @@ footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;fo
   <section class="section fade-up" id="contact">
     <div class="contact-card">
       <h2 class="contact-title">Let's Build Something</h2>
-      <!-- CHANGED: removed H-1B reference -->
-      <p class="contact-sub">Open to full-time AI/ML Engineer roles · Available May 27, 2026 · Open to relocation</p>
+      <p class="contact-sub">Open to full-time AI/ML Engineer roles · Open to relocation</p>
       <div class="contact-links">
         <a class="btn-primary" href="mailto:yeshwanthakula.r@gmail.com">Send Email ↗</a>
         <a class="btn-ghost" href="https://linkedin.com/in/yeshwanth-akula-0339a925b" target="_blank">LinkedIn ↗</a>
